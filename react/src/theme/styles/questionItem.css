@@ -1,0 +1,41 @@
+.questionItem {
+    border-bottom: 1px solid #333;
+    padding: 20px 0
+}
+
+.questionItem:last-child {
+    border-bottom: 0;
+}
+
+.questionTitle {
+    font-size: 16px;
+    color: blue;
+    margin-bottom: 10px;
+    overflow: hidden;
+    text-overflow:ellipsis;
+    white-space: nowrap;
+}
+
+.questionContent {
+    font-size: 12px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+.questionAnswer {
+    font-size: 14px;
+    color: #999;
+    margin-right: 15px;
+}
+
+.questionTime {
+    font-size: 14px;
+    color: #999;
+}
+
+.questionCount {
+    font-size: 14px;
+    color: #999;
+    float: right;
+    user-select: none;
+}
