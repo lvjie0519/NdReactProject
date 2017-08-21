@@ -39,7 +39,7 @@ export default class QuestionList extends Component {
 
   loadDataFromMock() {
     $.ajax({
-      url: 'http://localhost:3003/questions',
+      url: 'http://localhost:3003/questions?_sort=id&_order=DESC&_start=0&_limit=10',
       dataType: 'json',
       type: 'get',
       success: questionInfos => {

@@ -123,6 +123,7 @@ export default class PublishQuestion extends Component {
       data: questionInfo,
       success: infos => {
         console.log('上传成功', infos)
+        this.headerLeftOnClick()
       },
       error: (xhr, status, err) => {
         console.log('上传失败', err.toString())
