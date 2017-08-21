@@ -1,34 +1,221 @@
 {
-  "articles": [
-    {
-      "id": 1,
-      "title": "Angular2 中那些我看不懂的地方",
-      "description": "博客停更了近 3 个月，实在是愧对很多在微博上推荐的同学。因为最近大部分时间都投入在公司里一个比较复杂的项目中，直到本周才算正式发布，稍得解脱。 说这个项目复杂，不仅是因为需求设计复杂，更是因为在这个[...]",
-      "date": "2016-04-17"
-    },
-    {
-      "id": 2,
-      "title": "记一次使用 git bisect 快速定位 bug 的过程",
-      "description": "前一阵子跟三个同事一起合作开发了基于 Redux 的单页应用，我负责的部分完成的比较早，所有功能测试通过之后代码就没有改动过。 结果项目上线后不久接到反馈说我开发的某个功能突然用不了了，我自己一试果然[...]",
-      "date": "2016-01-19"
-    },
-    {
-      "id": 3,
-      "title": "Lets Encrypt 花三分钟免费接入ssl证书",
-      "description": "很久很久以前我还在当个人站长的时候，就一直琢磨着给网站买个 ssl 证书，这样用户访问的时候浏览器上的小绿锁能给人一种非常安全的印象。然而导致我最终没有上 https 的原因有：[...]",
-      "date": "2016-01-02"
-    },
-    {
-      "id": 4,
-      "title": "Redux 在实践中的一些问题及思考",
-      "description": "React 绝对是 2015 年前端领域的关键词，基于 React 的 Flux 架构也被越来越多的人所熟识。然而 Flux 作为一套架构思想而不是框架让许多开发者在实践中摸不着头脑，因此社区里也诞生[...]",
-      "date": "2015-12-12"
-    },
-    {
-      "id": 5,
-      "title": "setState 之后发生了什么 —— 浅谈 React 中的 Transaction",
-      "description": "本文系对 深入理解 React 的 batchUpdate 机制 的更新，根据 React v0.14 版源码添加并修改了部分内容。同时增加了一张看起来并不容易理解的示意图。 之前在我的博客里有[...]",
-      "date": "2015-10-25"
-    }
-  ]
+	"questions":[
+	  {
+		"questionId":0,
+		"questionType":0,
+		"questionTitle": "文言文“太行,王屋二山，方七百里，高万仞，本在冀州",
+		"questionContent":"理性探讨，请勿撕逼。产品经理的主要工作职责是产品设计。接受来自其他部门的需求，经过设计后交付研发。但这里有好些职责不清楚的地方。",
+		"questionAnswerCount":2,
+		"questionCreateTime":"2017-07-29 11:33",
+		"questionCreater":"陈晶晶",
+		"questionAnswerInfos":[
+		  {
+			"questionId":0,
+			"answerCreater":"陈晶晶11",
+			"answerCreateTime": "2017-07-26 19:27",
+			"answerUpCount":998,
+			"answerDownCount":2,
+			"answerContent":"回复问题11  回复问题11  回复问题11  回复问题11"
+		  },{
+			"questionId":0,
+			"answerCreater":"陈晶晶11",
+			"answerCreateTime": "2017-07-29 18:55",
+			"answerUpCount":212,
+			"answerDownCount":90,
+			"answerContent":"回复问题22  回复问题22  回复问题22  回复问题22"
+		  },{
+			"questionId":0,
+			"answerCreater":"陈晶晶11",
+			"answerCreateTime": "2017-07-29 18:55",
+			"answerUpCount":212,
+			"answerDownCount":90,
+			"answerContent":"回复问题33  回复问题33  回复问题33 回复问题33"
+		  },{
+			"questionId":0,
+			"answerCreater":"陈晶晶11",
+			"answerCreateTime": "2017-07-29 18:55",
+			"answerUpCount":212,
+			"answerDownCount":90,
+			"answerContent":"回复问题44 回复问题44  回复问题44 回复问题44"
+		  }
+		]
+	  },
+	  {
+		"questionId":1,
+		"questionType":1,
+		"questionTitle": "页面布局要能自适应屏幕宽度",
+		"questionContent":"别人对玩游戏感兴趣，我对写代码、看技术文章感兴趣；把泡github、stackoverflow、v2ex、reddit、csdn当做是兴趣爱好；遇到重复的工作，总想着能不能通过程序实现自动化；喝酒的时候把写代码当下酒菜，边喝边想边敲；不给工资我也会来加班；做梦都在写代码。",
+		"questionAnswerCount":1,
+		"questionCreateTime":"2017-07-29 17:55",
+		"questionCreater":"陈晶晶",
+		"questionAnswerInfos":[
+		  {
+			"questionId":0,
+			"answerCreater":"陈晶晶11",
+			"answerCreateTime": "2017-07-26 19:27",
+			"answerUpCount":998,
+			"answerDownCount":2,
+			"answerContent":"回复问题11  回复问题11  回复问题11  回复问题11"
+		  },{
+			"questionId":0,
+			"answerCreater":"陈晶晶11",
+			"answerCreateTime": "2017-07-29 18:55",
+			"answerUpCount":212,
+			"answerDownCount":90,
+			"answerContent":"回复问题22  回复问题22  回复问题22  回复问题22"
+		  },{
+			"questionId":0,
+			"answerCreater":"陈晶晶11",
+			"answerCreateTime": "2017-07-29 18:55",
+			"answerUpCount":212,
+			"answerDownCount":90,
+			"answerContent":"回复问题33  回复问题33  回复问题33 回复问题33"
+		  },{
+			"questionId":0,
+			"answerCreater":"陈晶晶11",
+			"answerCreateTime": "2017-07-29 18:55",
+			"answerUpCount":212,
+			"answerDownCount":90,
+			"answerContent":"回复问题44 回复问题44  回复问题44 回复问题44"
+		  }
+		]
+	  },
+	  {
+		"questionId":2,
+		"questionType":0,
+		"questionTitle": "产品经理与程序员矛盾的本质是什么？",
+		"questionContent":"理性探讨，请勿撕逼。产品经理的主要工作职责是产品设计。接受来自其他部门的需求，经过设计后交付研发。但这里有好些职责不清楚的地方。",
+		"questionAnswerCount":2,
+		"questionCreateTime":"2017-07-29 18:53",
+		"questionCreater":"陈晶晶",
+		"questionAnswerInfos":[
+		  {
+			"questionId":0,
+			"answerCreater":"陈晶晶11",
+			"answerCreateTime": "2017-07-26 19:27",
+			"answerUpCount":998,
+			"answerDownCount":2,
+			"answerContent":"回复问题11  回复问题11  回复问题11  回复问题11"
+		  },{
+			"questionId":0,
+			"answerCreater":"陈晶晶11",
+			"answerCreateTime": "2017-07-29 18:55",
+			"answerUpCount":212,
+			"answerDownCount":90,
+			"answerContent":"回复问题22  回复问题22  回复问题22  回复问题22"
+		  },{
+			"questionId":0,
+			"answerCreater":"陈晶晶11",
+			"answerCreateTime": "2017-07-29 18:55",
+			"answerUpCount":212,
+			"answerDownCount":90,
+			"answerContent":"回复问题33  回复问题33  回复问题33 回复问题33"
+		  },{
+			"questionId":0,
+			"answerCreater":"陈晶晶11",
+			"answerCreateTime": "2017-07-29 18:55",
+			"answerUpCount":212,
+			"answerDownCount":90,
+			"answerContent":"回复问题44 回复问题44  回复问题44 回复问题44"
+		  }
+		]
+	  },
+	  {
+		"questionId":3,
+		"questionType":1,
+		"questionTitle": "热爱编程是一种怎样的体验？",
+		"questionContent":"别人对玩游戏感兴趣，我对写代码、看技术文章感兴趣；把泡github、stackoverflow、v2ex、reddit、csdn当做是兴趣爱好；遇到重复的工作，总想着能不能通过程序实现自动化；喝酒的时候把写代码当下酒菜，边喝边想边敲；不给工资我也会来加班；做梦都在写代码。",
+		"questionAnswerCount":3,
+		"questionCreateTime":"2017-07-29 18:59",
+		"questionCreater":"陈晶晶",
+		"questionAnswerInfos":[
+		  {
+			"questionId":0,
+			"answerCreater":"陈晶晶11",
+			"answerCreateTime": "2017-07-26 19:27",
+			"answerUpCount":998,
+			"answerDownCount":2,
+			"answerContent":"回复问题11  回复问题11  回复问题11  回复问题11"
+		  },{
+			"questionId":0,
+			"answerCreater":"陈晶晶11",
+			"answerCreateTime": "2017-07-29 18:55",
+			"answerUpCount":212,
+			"answerDownCount":90,
+			"answerContent":"回复问题22  回复问题22  回复问题22  回复问题22"
+		  },{
+			"questionId":0,
+			"answerCreater":"陈晶晶11",
+			"answerCreateTime": "2017-07-29 18:55",
+			"answerUpCount":212,
+			"answerDownCount":90,
+			"answerContent":"回复问题33  回复问题33  回复问题33 回复问题33"
+		  },{
+			"questionId":0,
+			"answerCreater":"陈晶晶11",
+			"answerCreateTime": "2017-07-29 18:55",
+			"answerUpCount":212,
+			"answerDownCount":90,
+			"answerContent":"回复问题44 回复问题44  回复问题44 回复问题44"
+		  }
+		]
+	  },{
+	  "questionId":4,
+	  "questionType":0,
+	  "questionTitle": "文言文“太行,王屋二山，方七百里，高万仞，本在冀州",
+	  "questionContent":"理性探讨，请勿撕逼。产品经理的主要工作职责是产品设计。接受来自其他部门的需求，经过设计后交付研发。但这里有好些职责不清楚的地方。",
+	  "questionAnswerCount":1,
+	  "questionCreateTime":"2017-07-27 19:00",
+	  "questionCreater":"陈晶晶",
+	  "questionAnswerInfos":[
+		{
+		  "questionId":0,
+		  "answerCreater":"陈晶晶11",
+		  "answerCreateTime": "2017-07-26 19:27",
+		  "answerUpCount":998,
+		  "answerDownCount":2,
+		  "answerContent":"回复问题11  回复问题11  回复问题11  回复问题11"
+		},{
+		  "questionId":0,
+		  "answerCreater":"陈晶晶11",
+		  "answerCreateTime": "2017-07-29 18:55",
+		  "answerUpCount":212,
+		  "answerDownCount":90,
+		  "answerContent":"回复问题22  回复问题22  回复问题22  回复问题22"
+		},{
+		  "questionId":0,
+		  "answerCreater":"陈晶晶11",
+		  "answerCreateTime": "2017-07-29 18:55",
+		  "answerUpCount":212,
+		  "answerDownCount":90,
+		  "answerContent":"回复问题33  回复问题33  回复问题33 回复问题33"
+		},{
+		  "questionId":0,
+		  "answerCreater":"陈晶晶11",
+		  "answerCreateTime": "2017-07-29 18:55",
+		  "answerUpCount":212,
+		  "answerDownCount":90,
+		  "answerContent":"回复问题44 回复问题44  回复问题44 回复问题44"
+		}
+	  ]
+	},
+	  {
+		"questionId":5,
+		"questionType":1,
+		"questionTitle": "页面布局要能自适应屏幕宽度",
+		"questionContent":"别人对玩游戏感兴趣，我对写代码、看技术文章感兴趣；把泡github、stackoverflow、v2ex、reddit、csdn当做是兴趣爱好；遇到重复的工作，总想着能不能通过程序实现自动化；喝酒的时候把写代码当下酒菜，边喝边想边敲；不给工资我也会来加班；做梦都在写代码。",
+		"questionAnswerCount":1,
+		"questionCreateTime":"2017-07-26 17:05",
+		"questionCreater":"陈晶晶"
+	  },
+	  {
+		"questionId":6,
+		"questionType":0,
+		"questionTitle": "产品经理与程序员矛盾的本质是什么？",
+		"questionContent":"理性探讨，请勿撕逼。产品经理的主要工作职责是产品设计。接受来自其他部门的需求，经过设计后交付研发。但这里有好些职责不清楚的地方。",
+		"questionAnswerCount":2,
+		"questionCreateTime":"2017-07-28 18:30",
+		"questionCreater":"陈晶晶"
+	  }
+	]
 }
