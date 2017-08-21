@@ -6,6 +6,7 @@ import styles from '../theme/styles/publish.css'
 import CSSModules from 'react-css-modules'
 import HeaderDetail from './component/headerDetail'
 // import Dialog from './component/dialog'
+import $ from 'jquery'
 
 @CSSModules(styles, {allowMultiple: true})
 export default class PublishQuestion extends Component {
@@ -60,18 +61,73 @@ export default class PublishQuestion extends Component {
     console.log('提交')
     let questionTitle = this.refs.questionTitle.value.trim()
     let questionContent = this.refs.questionContent.value.trim()
+    let currentDateTime = this.getCurrentDateTime()
+    let questionId = new Date().getTime()
     console.log(questionTitle, questionContent)
+
     let questionInfo = {
-      'questionId': 100,
+      'id': questionId,
+      'questionId': questionId,
       'questionType': 1,
       'questionTitle': questionTitle,
       'questionContent': questionContent,
       'questionAnswerCount': 0,
-      'questionCreateTime': '2017-07-29',
+      'questionCreateTime': currentDateTime,
       'questionCreater': '陈晶晶',
       'questionAnswerInfos': []
     }
     console.log(questionInfo)
+    this.postQuestionInfoToServer(questionInfo)
+  }
+
+  getCurrentDateTime() {
+    let now = new Date()
+
+    let year = now.getFullYear()       // 年
+    let month = now.getMonth() + 1    // 月
+    let day = now.getDate()            // 日
+    let hh = now.getHours()          // 时
+    let mm = now.getMinutes()          // 分
+
+    let dateTime = year + '-'
+
+    if (month < 10) {
+      dateTime += '0'
+    }
+
+    dateTime += month + '-'
+
+    if (day < 10) {
+      dateTime += '0'
+    }
+
+    dateTime += day + ' '
+
+    if (hh < 10) {
+      dateTime += '0'
+    }
+
+    dateTime += hh + ':'
+    if (mm < 10) {
+      dateTime += '0'
+    }
+    dateTime += mm
+    return dateTime
+  }
+
+  // 上传数据 成功
+  postQuestionInfoToServer(questionInfo) {
+    $.ajax({
+      type: 'post',
+      url: 'http://localhost:3003/questions',
+      data: questionInfo,
+      success: infos => {
+        console.log('上传成功', infos)
+      },
+      error: (xhr, status, err) => {
+        console.log('上传失败', err.toString())
+      }
+    })
   }
 }
 

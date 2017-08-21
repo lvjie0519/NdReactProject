@@ -19,8 +19,9 @@ export default class QuestionMain extends Component {
         <div>加载中....</div>
       )
     } else {
-      var questionInfos = this.state.questionInfos.map(function (questionInfo) {
+      var questionInfos = this.state.questionInfos.map(function (questionInfo, index) {
         return <QuestionListItem
+          key={index}
           questionInfo={questionInfo}
           onItemClick={this.onItemClick} />
       }.bind(this))
@@ -38,10 +39,12 @@ export default class QuestionMain extends Component {
 
   loadDataFromMock() {
     $.ajax({
-      url: 'questions.json',
+      url: 'http://localhost:3003/questions?questionType=1',
       dataType: 'json',
+      type: 'get',
       success: questionInfos => {
-        this.checkQuestionInfos(questionInfos)
+        this.setState({questionInfos: questionInfos, isLoading: false})
+        // this.checkQuestionInfos(questionInfos)
       },
       error: (xhr, status, err) => {
         console.log(err.toString())
@@ -49,18 +52,18 @@ export default class QuestionMain extends Component {
     })
   }
 
-  checkQuestionInfos(questionInfos) {
-    let tempQuestionInfos = []
-    if (questionInfos != null) {
-      questionInfos.map(function (questionInfo) {
-        if (questionInfo.questionType === 1) {
-          tempQuestionInfos.push(questionInfo)
-        }
-      })
-    }
-
-    this.setState({questionInfos: tempQuestionInfos, isLoading: false})
-  }
+  // checkQuestionInfos(questionInfos) {
+  //   let tempQuestionInfos = []
+  //   if (questionInfos != null) {
+  //     questionInfos.map(function (questionInfo) {
+  //       if (questionInfo.questionType === 1) {
+  //         tempQuestionInfos.push(questionInfo)
+  //       }
+  //     })
+  //   }
+  //
+  //   this.setState({questionInfos: tempQuestionInfos, isLoading: false})
+  // }
 
   onItemClick(questionInfo) {
     console.log(questionInfo.questionTitle)

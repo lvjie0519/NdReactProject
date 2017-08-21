@@ -19,8 +19,9 @@ export default class QuestionList extends Component {
         <div>加载中....</div>
       )
     } else {
-      var questionInfos = this.state.questionInfos.map(function (questionInfo) {
+      var questionInfos = this.state.questionInfos.map(function (questionInfo, index) {
         return <QuestionListItem
+          key={index}
           questionInfo={questionInfo}
           onItemClick={this.onItemClick} />
       }.bind(this))
@@ -38,8 +39,9 @@ export default class QuestionList extends Component {
 
   loadDataFromMock() {
     $.ajax({
-      url: 'questions.json',
+      url: 'http://localhost:3003/questions',
       dataType: 'json',
+      type: 'get',
       success: questionInfos => {
         this.setState({questionInfos: questionInfos, isLoading: false})
       },
