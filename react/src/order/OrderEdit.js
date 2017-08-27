@@ -1,69 +1,36 @@
 /**
  * Created by Administrator on 2017/7/29 0029.
  */
-import React, { Component } from 'react'
+import React, {Component} from 'react'
 import styles from '../theme/styles/edit.css'
 import CSSModules from 'react-css-modules'
 import Header from './component/header'
+import Dialog from './component/dialog'
 import $ from 'jquery'
 
+/**
+ * 编辑页
+ */
 @CSSModules(styles, {allowMultiple: true})
 export default class OrderEdit extends Component {
   static propTypes = {
     location: React.PropTypes.object
   }
+
   constructor(props) {
     super(props)
     this.state = {
-      title: ''
+      title: '',
+      userNameTip: '',
+      userIdTip: ''
     }
 
     this.orderInfo = props.location.state.orderInfo
     this.headerLeftOnClick = this.headerLeftOnClick.bind(this)
     this.submitOnClick = this.submitOnClick.bind(this)
   }
+
   handleSubmit() {
-
-  }
-  render() {
-    return (
-      <div>
-        <Header
-          leftText='首页'
-          centerText='单据编辑'
-          leftClick={this.headerLeftOnClick} />
-        <h1 styleName='smart-orderName'>{this.orderInfo.orderName}</h1>
-        <form styleName='smart-edit'>
-          <div styleName='smart-edit-user'>
-            <span>姓名：</span>
-            <input ref='userName' type='text' />
-          </div>
-          <div styleName='smart-edit-user'>
-            <span>工号：</span>
-            <input ref='userId' type='text' />
-          </div>
-          <div style={{marginTop: 20}}>
-            <span >单据说明：</span>
-            <textarea ref='orderDes' rows='30' />
-          </div>
-          <div styleName='btn-box'>
-            <span styleName='btn smart-btn-submit' onClick={this.submitOnClick} >提交</span>
-          </div>
-        </form>
-      </div>
-    )
-  }
-
-  headerLeftOnClick() {
-    console.log('点击返回')
-    // this.context.router.goBack()
-    this.context.router.push({
-      pathname: '/'
-    })
-  }
-
-  submitOnClick() {
-    console.log('提交', this.orderInfo)
     let id = new Date().getTime()
     let orderId = this.orderInfo.orderId
     let orderStatus = '未审批'
@@ -83,6 +50,90 @@ export default class OrderEdit extends Component {
     }
     console.log('orderInfo', orderInfo)
     this.postOrderInfoToServer(orderInfo)
+  }
+
+  render() {
+    return (
+      <div>
+        <Header leftText='首页' centerText='单据编辑' leftClick={this.headerLeftOnClick} />
+        <h1 styleName='smart-orderName'>{this.orderInfo.orderName}</h1>
+        <form styleName='smart-edit'>
+          <div styleName='smart-edit-user'>
+            <span>姓名：</span>
+            <input ref='userName' type='text' placeholder='仅支持中文' />
+            <span style={{color: 'red'}}>{this.state.userNameTip}</span>
+          </div>
+          <div styleName='smart-edit-user'>
+            <span>工号：</span>
+            <input ref='userId' type='text' placeholder='仅限数字，长度为6至10位' />
+            <span style={{color: 'red'}}>{this.state.userIdTip}</span>
+          </div>
+          <div style={{marginTop: 20}}>
+            <span>单据说明：</span>
+            <textarea ref='orderDes' rows='30' />
+          </div>
+          <div styleName='btn-box'>
+            <span styleName='btn smart-btn-submit' onClick={this.submitOnClick}>提交</span>
+          </div>
+        </form>
+      </div>
+    )
+  }
+
+  headerLeftOnClick() {
+    this.context.router.push({
+      pathname: '/'
+    })
+  }
+
+  checkInput() {
+    let resultName = false
+    let resultId = false
+    const lengthName = this.refs.userName.value.length
+    if (lengthName === 0) {
+      this.setState({
+        userNameTip: '请输入姓名'
+      })
+    } else if (!/^[\u0391-\uFFE5]+$/.test(this.refs.userName.value) || lengthName > 10) {
+      this.setState({
+        userNameTip: '请输入正确的姓名，长度最多为10位'
+      })
+    } else {
+      this.setState({
+        userNameTip: ''
+      })
+      resultName = true
+    }
+    const length = this.refs.userId.value.length
+    if (length === 0) {
+      this.setState({
+        userIdTip: '请输入工号'
+      })
+    } else if (!/^[-+]?\d*$/.test(this.refs.userId.value) || length < 6 || length > 10) {
+      this.setState({
+        userIdTip: '请输入正确的工号，位数为6到10位'
+      })
+    } else {
+      this.setState({
+        userIdTip: ''
+      })
+      resultId = true
+    }
+    return resultName && resultId
+  }
+
+  submitOnClick() {
+    let result = this.checkInput()
+    console.log('result', result)
+    if (result) {
+      console.log('提交', this.orderInfo)
+      const that = this
+      Dialog.show(3, '', '是否确认提交单据？', 2000, function () {
+        that.handleSubmit()
+      }, function () {
+        Dialog.hide()
+      })
+    }
   }
 
   // 上传数据 成功

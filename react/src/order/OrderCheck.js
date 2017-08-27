@@ -1,17 +1,22 @@
 /**
  * Created by Administrator on 2017/7/29 0029.
  */
-import React, { Component } from 'react'
+import React, {Component} from 'react'
 import styles from '../theme/styles/edit.css'
 import CSSModules from 'react-css-modules'
 import Header from './component/header'
 import $ from 'jquery'
+import Dialog from './component/dialog'
 
+/**
+ * 单据--审批页
+ */
 @CSSModules(styles, {allowMultiple: true})
 export default class OrderCheck extends Component {
   static propTypes = {
     location: React.PropTypes.object
   }
+
   constructor(props) {
     super(props)
     this.state = {
@@ -24,18 +29,17 @@ export default class OrderCheck extends Component {
     this.checkSuccess = this.checkSuccess.bind(this)
     this.checkFailure = this.checkFailure.bind(this)
   }
+
   handleSubmit() {
 
   }
+
   render() {
     return (
       <div>
-        <Header
-          leftText='首页'
-          centerText=''
-          leftClick={this.headerLeftOnClick} />
+        <Header leftText='首页' centerText='' leftClick={this.headerLeftOnClick} />
         <h1 styleName='smart-orderName'>{this.orderInfo.orderName}</h1>
-        <form styleName='smart-edit' >
+        <form styleName='smart-edit'>
           <div>
             <span>节点审批人：</span>
             <text>XXX</text>
@@ -44,9 +48,9 @@ export default class OrderCheck extends Component {
             <span>审批说明：</span>
             <textarea id='description' ref='checkDes' rows='30' />
           </div>
-          <div >
-            <button onClick={this.checkSuccess} >通过</button>
-            <button onClick={this.checkFailure} >不通过</button>
+          <div styleName='btn-box'>
+            <span styleName='btn smart-btn-submit' onClick={this.checkSuccess}>通过</span>
+            <span styleName='btn' onClick={this.checkFailure}>不通过</span>
           </div>
         </form>
       </div>
@@ -54,18 +58,24 @@ export default class OrderCheck extends Component {
   }
 
   headerLeftOnClick() {
-    console.log('点击返回')
-    // this.context.router.goBack()
     this.context.router.push({
       pathname: '/'
     })
   }
 
   checkSuccess() {
+    if (this.refs.checkDes.value === '') {
+      Dialog.show(0, '提示', '审批说明不能为空', 1000)
+      return
+    }
     this.updateOrderInfoToServer(1)
   }
 
   checkFailure() {
+    if (this.refs.checkDes.value === '') {
+      Dialog.show(0, '提示', '审批说明不能为空', 1000)
+      return
+    }
     this.updateOrderInfoToServer(0)
   }
 

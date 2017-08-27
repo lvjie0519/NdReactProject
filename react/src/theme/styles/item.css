@@ -1,0 +1,17 @@
+.item {
+  border-bottom: 1px solid #333;
+  padding: 20px 0
+}
+
+.itemName {
+  font-size: 14px;
+  color: #999;
+  margin-right: 15px;
+}
+
+.itemText {
+  font-size: 14px;
+  color: #999;
+  float: right;
+  user-select: none;
+}

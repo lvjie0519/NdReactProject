@@ -3,8 +3,11 @@
  */
 import React, {Component} from 'react'
 import CSSModules from 'react-css-modules'
-import styles from '../../theme/styles/modal.css'
+import styles from '../../theme/styles/item.css'
 
+/**
+ * 首页 -- 列表项
+ */
 @CSSModules(styles, {allowMultiple: true})
 export default class OrderListItem extends Component {
   static propTypes = {
@@ -33,9 +36,9 @@ export default class OrderListItem extends Component {
     return (
       <div onClick={(e) => {
         this.onItemClick(e)
-      }} styleName='questionItem'>
-        <span styleName='questionAnswer'>{this.props.order.orderName}</span>
-        <span styleName='questionCount'>{rightText}</span>
+      }} styleName='item'>
+        <span styleName='itemName'>{this.props.order.orderName}</span>
+        <span styleName='itemText'>{rightText}</span>
       </div>
     )
   }

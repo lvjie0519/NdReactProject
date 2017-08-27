@@ -41,6 +41,7 @@
     -webkit-box-shadow: inset 1px 1px 2px rgba(238, 238, 238, 0.2);
     box-shadow: inset 1px 1px 2px rgba(238, 238, 238, 0.2);
     font: normal 14px/14px Arial, Helvetica, sans-serif;
+    margin-right: 20px;
 }
 
 .smart-edit textarea {
@@ -93,4 +94,14 @@
     display: block;
     width: 100%;
   }
+
+  .smart-edit span {
+    display: block;
+  }
+
+  .smart-edit input[type="text"], .smart-edit textarea {
+    width: 100%;
+  }
 }
+
+

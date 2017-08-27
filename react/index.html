@@ -10,6 +10,138 @@
   <!--[if lt IE 9]>
     <script src="polyfill/shim.js"></script>
   <![endif]-->
+  <style>
+    /****弹窗水平居中样式****/
+    .vertical-center-modal {
+      text-align: center;
+      white-space: nowrap;
+    }
+    .vertical-center-modal:before {
+      content: '';
+      display: inline-block;
+      height: 100%;
+      vertical-align: middle;
+      width: 0;
+    }
+    .vertical-center-modal .ant-modal {
+      display: inline-block;
+      vertical-align: middle;
+      top: 0;
+      text-align: left;
+      padding: 0;
+    }
+
+    /****通用提示窗口样式****/
+    .common-dialog-tips-bg {
+      width: 100%;
+      height: auto;
+      z-index: 999;
+      position: fixed;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      opacity: 0.2;
+      filter:alpha(opacity=20);
+      background-color: #333333;
+    }
+    .common-dialog-tips {
+      width: 472px;
+      min-height: 274px;
+      z-index: 1000;
+      position: fixed;
+      background-color: #f9f9f9;
+      top: 50%;
+      left: 50%;
+      margin: -137px 0 0 -236px;
+      overflow: hidden;
+    }
+    .common-dialog-tips .common-tip-title {
+      color: #666666;
+      font-size: 16px;
+      height: 50px;
+      line-height: 50px;
+      padding-left: 30px;
+      background-color: #ffffff;
+      border-bottom: 1px solid #e0e0e0;
+      position: relative;
+    }
+    .common-dialog-tips .common-tip-close {
+      display: block;
+      width: 22px;
+      height: 22px;
+      background: url('./images/tip-close.png') 0px 0px no-repeat;
+      position: absolute;
+      top: 14px;
+      right: 30px;
+      cursor: pointer;
+    }
+    .common-dialog-tips .common-tip-content {
+      padding: 50px 20px 20px;
+      color: #333333;
+      font-size: 22px;
+      line-height: 30px;
+      text-align: center;
+      overflow: auto;
+      margin-bottom: 75px;
+      max-height: 200px;
+    }
+    .common-dialog-tips .common-tip-content .common-tip-icon {
+      display: block;
+      height: 55px;
+      width: 54px;
+      margin: 0 auto 15px;
+    }
+    .common-dialog-tips .common-tip-content.success {
+      padding-top:20px;
+    }
+    .common-dialog-tips .common-tip-content.success .common-tip-icon {
+      background: url('./images/success.png') 0px 0px no-repeat;
+    }
+    .common-dialog-tips .common-tip-content.error {
+      padding-top:20px;
+    }
+    .common-dialog-tips .common-tip-content.error .common-tip-icon {
+      background: url('./images/error.png') 0px 0px no-repeat;
+    }
+    .common-dialog-tips .common-tip-btns {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      height: 74px;
+      border-top: 1px solid #e0e0e0;
+      background-color: #ffffff;
+    }
+    .common-dialog-tips .common-tip-btns .common-tip-btn {
+      display: block;;
+      width: 140px;
+      height: 40px;
+      line-height: 40px;
+      font-size: 18px;
+      text-align: center;
+      cursor: pointer;
+      -webkit-border-radius: 4px;
+      -moz-border-radius: 4px;
+      border-radius: 4px;
+      margin-top: 16px;
+      margin-left: 20px;
+      float: left;
+      margin-left: 84px;
+      border: 1px solid #38adff;
+      color: #ffffff;
+      background-color: #38adff;
+    }
+    .common-dialog-tips .common-tip-btns .common-tip-btn.cancel {
+      border: 1px solid #38adff;
+      color: #38adff;
+      margin-left: 20px;
+      background-color: #ffffff;
+    }
+    .common-dialog-tips .common-tip-btns .common-tip-btn.center {
+      float: none;
+      margin: 16px auto 0;
+    }
+  </style>
 </head>
 
 <body>

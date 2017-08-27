@@ -8,7 +8,7 @@ class Dialog {}
  * okCallBack 确定按钮回调方法,如果回调方法返回值为true，自动关闭提示，否则不能自动关闭，需要手动调用hide方法关闭提示弹窗
  * delay (int) 是否自动关闭 默认不自动关闭，设置delay后自动关闭
  * 返回值 返回弹窗的id，可以通过id关闭对应弹窗
-*/
+ */
 
 // 提示
 Dialog.show = function (type, title, text, delay, okCallBack, cancelCallBack) {

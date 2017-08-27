@@ -8,6 +8,9 @@ import Header from './component/header'
 import OrderMainTop from './component/OrderMainTop'
 import MyOrderList from './MyOrderList'
 
+/**
+ * 首页
+ */
 export default class OrderMain extends Component {
   constructor() {
     super()
@@ -21,7 +24,6 @@ export default class OrderMain extends Component {
 
   render() {
     var selectPage = this.getSelectPage()
-    // this.getSelectPage()
     return (
       <div>
         <Header centerText='首页' />

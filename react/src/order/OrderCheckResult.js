@@ -6,6 +6,9 @@ import styles from '../theme/styles/edit.css'
 import CSSModules from 'react-css-modules'
 import Header from './component/header'
 
+/**
+ * 审批--结果
+ */
 @CSSModules(styles, {allowMultiple: true})
 export default class OrderCheckResult extends Component {
   static propTypes = {
@@ -32,13 +35,13 @@ export default class OrderCheckResult extends Component {
       info = '单据审批不通过'
     }
     return (
-      <div>
+      <div style={{textAlign: 'center'}}>
         <Header
           leftText='首页'
           centerText=''
           leftClick={this.headerLeftOnClick} />
         <h1 styleName='smart-orderName'>{this.orderInfo.orderName}</h1>
-        <h3>{info}</h3>
+        <span style={{fontSize: 18}}>{info}</span>
       </div>
     )
   }
