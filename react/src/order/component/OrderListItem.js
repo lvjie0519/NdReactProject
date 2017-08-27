@@ -3,7 +3,7 @@
  */
 import React, {Component} from 'react'
 import CSSModules from 'react-css-modules'
-import styles from '../../theme/styles/questionItem.css'
+import styles from '../../theme/styles/modal.css'
 
 @CSSModules(styles, {allowMultiple: true})
 export default class OrderListItem extends Component {
