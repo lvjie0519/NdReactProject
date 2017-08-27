@@ -54,5 +54,15 @@ export default class MyOrderList extends Component {
 
   onItemClick(orderInfo) {
     console.log(orderInfo.orderName)
+    this.context.router.push({
+      pathname: '/check-order',
+      state: {
+        orderInfo: orderInfo
+      }
+    })
   }
+}
+
+MyOrderList.contextTypes = {
+  router: React.PropTypes.object
 }

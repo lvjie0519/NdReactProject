@@ -32,7 +32,7 @@ export default class OrderEdit extends Component {
           leftText='首页'
           centerText='单据编辑'
           leftClick={this.headerLeftOnClick} />
-        <h1 styleName='smart-orderName'>电脑维修单</h1>
+        <h1 styleName='smart-orderName'>{this.orderInfo.orderName}</h1>
         <form styleName='smart-edit'>
           <div styleName='smart-edit-user'>
             <span>姓名：</span>
@@ -43,13 +43,8 @@ export default class OrderEdit extends Component {
             <input ref='userId' type='text' />
           </div>
           <div style={{marginTop: 20}}>
-<<<<<<< HEAD
             <span >单据说明：</span>
             <textarea ref='orderDes' rows='30' />
-=======
-            <span>单据说明：</span>
-            <textarea id='description' ref='orderDes' rows='30' />
->>>>>>> 3c011306e2e9b8fdc53b9fd96d6f75e3fd79970f
           </div>
           <div styleName='btn-box'>
             <span styleName='btn smart-btn-submit' onClick={this.submitOnClick} >提交</span>
