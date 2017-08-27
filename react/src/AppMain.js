@@ -3,13 +3,13 @@
  */
 import React, { Component } from 'react'
 
-import QuestionMain from './question/QuestionMain'
+import OrderMain from './order/OrderMain'
 
 export default class AppMain extends Component {
   render() {
     return (
       <div>
-        <QuestionMain />
+        <OrderMain />
       </div>
     )
   }

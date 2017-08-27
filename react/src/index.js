@@ -9,15 +9,11 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import {Router, Route, hashHistory} from 'react-router'
 import AppMain from './AppMain'
-import PublishQuestion from './question/PublishQuestion'
-import QuestionDetail from './question/detail/QuestionDetail'
-import JsonOprationDemo from './question/JsonOprationDemo'
+import OrderEdit from './order/OrderEdit'
 
 ReactDOM.render((
   <Router history={hashHistory}>
     <Route path='/' component={AppMain} />
-    <Route path='/publish-question' component={PublishQuestion} />
-    <Route path='/question-detail' component={QuestionDetail} />
-    <Route path='/json-opration' component={JsonOprationDemo} />
+    <Route path='/edit-order' component={OrderEdit} />
   </Router >
 ), document.getElementById('app'))
