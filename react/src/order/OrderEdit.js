@@ -19,6 +19,17 @@ export default class OrderEdit extends Component {
     }
 
     this.orderInfo = props.location.state.orderInfo
+    if (this.orderInfo == null) {
+      this.orderInfo = {
+        'id': '',
+        'orderId': '',
+        'orderStatus': '',
+        'orderName': '',
+        'orderDes': '',
+        'orderApplyer': '1234',
+        'orderApplyerId': ''
+      }
+    }
     this.headerLeftOnClick = this.headerLeftOnClick.bind(this)
     this.submitOnClick = this.submitOnClick.bind(this)
   }

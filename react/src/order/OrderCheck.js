@@ -19,6 +19,17 @@ export default class OrderCheck extends Component {
     }
 
     this.orderInfo = props.location.state.orderInfo
+    if (this.orderInfo == null) {
+      this.orderInfo = {
+        'id': '',
+        'orderId': '',
+        'orderStatus': '',
+        'orderName': '',
+        'orderDes': '',
+        'orderApplyer': '1234',
+        'orderApplyerId': ''
+      }
+    }
     console.log('传递过来的单据信息', this.orderInfo)
     this.headerLeftOnClick = this.headerLeftOnClick.bind(this)
     this.checkSuccess = this.checkSuccess.bind(this)
