@@ -8,13 +8,17 @@ import Header from './component/header'
 import $ from 'jquery'
 
 @CSSModules(styles, {allowMultiple: true})
-export default class PublishQuestion extends Component {
+export default class OrderEdit extends Component {
+  static propTypes = {
+    location: React.PropTypes.object
+  }
   constructor(props) {
     super(props)
     this.state = {
       title: ''
     }
 
+    this.orderInfo = props.location.state.orderInfo
     this.headerLeftOnClick = this.headerLeftOnClick.bind(this)
     this.submitOnClick = this.submitOnClick.bind(this)
   }
@@ -25,20 +29,22 @@ export default class PublishQuestion extends Component {
     return (
       <div>
         <Header
-          centerText='首页'
-          headerstyle='header-container publish'
+          leftText='首页'
+          centerText='单据编辑'
           leftClick={this.headerLeftOnClick} />
-        <form styleName='smart-publish'>
+        <form styleName='smart-publish' >
           <div>
-            <span>标题：（50字以内的中文、英文或数字）</span>
-            <input id='title' ref='questionTitle' type='text' placeholder='请输入问题标题' />
+            <span>姓名：</span>
+            <input id='title' ref='userName' type='text' />
+            <span>工号：</span>
+            <input id='title' ref='userId' type='text' />
           </div>
           <div style={{marginTop: 20}}>
-            <span>描述：（200字以内）</span>
-            <textarea id='description' ref='questionContent' name='description' rows='30' placeholder='请输入问题描述' />
+            <span>单据说明：</span>
+            <textarea id='description' ref='orderDes' name='description' rows='30' />
           </div>
-          <div styleName='btn-wrapper'>
-            <span styleName='btn smart-btn-submit'>提交</span><span styleName='btn'>取消</span>
+          <div >
+            <button onClick={this.submitOnClick} >提交</button>
           </div>
         </form>
       </div>
@@ -51,26 +57,28 @@ export default class PublishQuestion extends Component {
   }
 
   submitOnClick() {
-    console.log('提交')
-    let questionTitle = this.refs.questionTitle.value.trim()
-    let questionContent = this.refs.questionContent.value.trim()
-    let currentDateTime = this.getCurrentDateTime()
-    let questionId = new Date().getTime()
-    console.log(questionTitle, questionContent)
+    console.log('提交', this.orderInfo)
+    let id = new Date().getTime()
+    let orderId = this.orderInfo.orderId
+    let orderStatus = '未审批'
+    let orderName = this.orderInfo.orderName
+    let orderDes = this.refs.orderDes.value.trim()
+    let orderApplyTime = this.getCurrentDateTime()
+    let userName = this.refs.userName.value.trim()
+    let userId = this.refs.userId.value.trim()
 
-    let questionInfo = {
-      'id': questionId,
-      'questionId': questionId,
-      'questionType': 1,
-      'questionTitle': questionTitle,
-      'questionContent': questionContent,
-      'questionAnswerCount': 0,
-      'questionCreateTime': currentDateTime,
-      'questionCreater': '陈晶晶',
-      'questionAnswerInfos': []
+    let orderInfo = {
+      'id': id,
+      'orderId': orderId,
+      'orderStatus': orderStatus,
+      'orderName': orderName,
+      'orderDes': orderDes,
+      'orderApplyTime': orderApplyTime,
+      'orderApplyer': userName,
+      'orderApplyerId': userId
     }
-    console.log(questionInfo)
-    this.postQuestionInfoToServer(questionInfo)
+    console.log('orderInfo', orderInfo)
+    this.postOrderInfoToServer(orderInfo)
   }
 
   getCurrentDateTime() {
@@ -109,11 +117,11 @@ export default class PublishQuestion extends Component {
   }
 
   // 上传数据 成功
-  postQuestionInfoToServer(questionInfo) {
+  postOrderInfoToServer(orderInfo) {
     $.ajax({
       type: 'post',
-      url: 'http://localhost:3003/questions',
-      data: questionInfo,
+      url: 'http://localhost:3003/orders',
+      data: orderInfo,
       success: infos => {
         console.log('上传成功', infos)
         this.headerLeftOnClick()
@@ -125,6 +133,6 @@ export default class PublishQuestion extends Component {
   }
 }
 
-PublishQuestion.contextTypes = {
+OrderEdit.contextTypes = {
   router: React.PropTypes.object
 }
