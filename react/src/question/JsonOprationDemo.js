@@ -2,7 +2,7 @@
  * Created by Administrator on 2017/7/29 0029.
  */
 import React, { Component } from 'react'
-import styles from '../theme/styles/publish.css'
+import styles from '../theme/styles/edit.css'
 import CSSModules from 'react-css-modules'
 import HeaderDetail from './component/headerDetail'
 import $ from 'jquery'

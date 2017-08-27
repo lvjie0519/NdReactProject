@@ -27,7 +27,7 @@ export default class Header extends Component {
   render() {
     return (
       <div styleName='header-container'>
-        <a styleName='left-btn' onClick={(e) => {
+        <a styleName='left-text' onClick={(e) => {
           this.leftClick(e)
         }}>{this.props.leftText}</a>
         <span styleName='center-text'>{this.props.centerText}</span>

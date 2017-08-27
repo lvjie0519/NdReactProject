@@ -2,7 +2,7 @@
  * Created by Administrator on 2017/7/29 0029.
  */
 import React, { Component } from 'react'
-import styles from '../theme/styles/publish.css'
+import styles from '../theme/styles/edit.css'
 import CSSModules from 'react-css-modules'
 import Header from './component/header'
 import $ from 'jquery'
@@ -32,19 +32,22 @@ export default class OrderEdit extends Component {
           leftText='首页'
           centerText='单据编辑'
           leftClick={this.headerLeftOnClick} />
-        <form styleName='smart-publish' >
-          <div>
+        <h1 styleName='smart-orderName'>电脑维修单</h1>
+        <form styleName='smart-edit'>
+          <div styleName='smart-edit-user'>
             <span>姓名：</span>
-            <input id='title' ref='userName' type='text' />
+            <input ref='userName' type='text' />
+          </div>
+          <div styleName='smart-edit-user'>
             <span>工号：</span>
-            <input id='title' ref='userId' type='text' />
+            <input ref='userId' type='text' />
           </div>
           <div style={{marginTop: 20}}>
-            <span>单据说明：</span>
-            <textarea id='description' ref='orderDes' name='description' rows='30' />
+            <span >单据说明：</span>
+            <textarea ref='orderDes' rows='30' />
           </div>
-          <div >
-            <button onClick={this.submitOnClick} >提交</button>
+          <div styleName='btn-box'>
+            <span styleName='btn smart-btn-submit' onClick={this.submitOnClick} >提交</span>
           </div>
         </form>
       </div>
@@ -63,7 +66,6 @@ export default class OrderEdit extends Component {
     let orderStatus = '未审批'
     let orderName = this.orderInfo.orderName
     let orderDes = this.refs.orderDes.value.trim()
-    let orderApplyTime = this.getCurrentDateTime()
     let userName = this.refs.userName.value.trim()
     let userId = this.refs.userId.value.trim()
 
@@ -73,47 +75,11 @@ export default class OrderEdit extends Component {
       'orderStatus': orderStatus,
       'orderName': orderName,
       'orderDes': orderDes,
-      'orderApplyTime': orderApplyTime,
       'orderApplyer': userName,
       'orderApplyerId': userId
     }
     console.log('orderInfo', orderInfo)
     this.postOrderInfoToServer(orderInfo)
-  }
-
-  getCurrentDateTime() {
-    let now = new Date()
-
-    let year = now.getFullYear()       // 年
-    let month = now.getMonth() + 1    // 月
-    let day = now.getDate()            // 日
-    let hh = now.getHours()          // 时
-    let mm = now.getMinutes()          // 分
-
-    let dateTime = year + '-'
-
-    if (month < 10) {
-      dateTime += '0'
-    }
-
-    dateTime += month + '-'
-
-    if (day < 10) {
-      dateTime += '0'
-    }
-
-    dateTime += day + ' '
-
-    if (hh < 10) {
-      dateTime += '0'
-    }
-
-    dateTime += hh + ':'
-    if (mm < 10) {
-      dateTime += '0'
-    }
-    dateTime += mm
-    return dateTime
   }
 
   // 上传数据 成功
