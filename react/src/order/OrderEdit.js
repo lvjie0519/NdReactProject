@@ -164,16 +164,26 @@ export default class OrderEdit extends Component {
 
   // 上传数据 成功
   postOrderInfoToServer(orderInfo) {
+    this.orderInfo = orderInfo
     $.ajax({
       type: 'post',
       url: 'http://localhost:3003/orders',
       data: orderInfo,
       success: infos => {
         console.log('上传成功', infos)
-        this.headerLeftOnClick()
+        this.goOrderCheckPage()
       },
       error: (xhr, status, err) => {
         console.log('上传失败', err.toString())
+      }
+    })
+  }
+
+  goOrderCheckPage() {
+    this.context.router.push({
+      pathname: '/check-order',
+      state: {
+        orderInfo: this.orderInfo
       }
     })
   }
