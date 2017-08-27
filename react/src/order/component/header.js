@@ -10,17 +10,12 @@ export default class Header extends Component {
   static propTypes = {
     leftText: React.PropTypes.string,
     centerText: React.PropTypes.string,
-    rightText: React.PropTypes.string,
-    headerStyle: React.PropTypes.string,
-    leftClick: React.PropTypes.func,
-    rightClick: React.PropTypes.func
+    leftClick: React.PropTypes.func
   }
 
   static getDefaultProps = {
     leftText: '',
-    centerText: '',
-    rightText: '',
-    headerStyle: 'header-container'
+    centerText: ''
   }
 
   leftClick(e) {
@@ -29,22 +24,13 @@ export default class Header extends Component {
     }
   }
 
-  rightClick(e) {
-    if (this.props.rightClick != null) {
-      this.props.rightClick()
-    }
-  }
-
   render() {
     return (
-      <div styleName={this.props.headerStyle}>
+      <div styleName='header-container'>
         <a styleName='left-btn' onClick={(e) => {
           this.leftClick(e)
         }}>{this.props.leftText}</a>
         <span styleName='center-text'>{this.props.centerText}</span>
-        <button styleName='right-btn' onClick={(e) => {
-          this.rightClick(e)
-        }}>{this.props.rightText}</button>
       </div>
     )
   }

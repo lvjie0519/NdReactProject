@@ -25,29 +25,7 @@
     width: 50px;
     transition: all .3s cubic-bezier(.645,.045,.355,1);
     color: rgba(0,0,0,.65);
-    background: resolve('backstep-icon.png') center center;
     background-size: 100% 100%;
-}
-
-.right-btn {
-    float: right;
-    padding: 5px 10px;
-    display: inline-block;
-    margin: 10px 10px  0 0;
-    font-weight: 500;
-    text-align: center;
-    touch-action: manipulation;
-    cursor: pointer;
-    border: 1px solid #d9d9d9;
-    white-space: nowrap;
-    line-height: 1.5;
-    font-size: 12px;
-    border-radius: 4px;
-    height: 28px;
-    user-select: none;
-    transition: all .3s cubic-bezier(.645,.045,.355,1);
-    color: rgba(0,0,0,.65);
-    background-color: #fff;
 }
 
 .center-text{
@@ -55,7 +33,8 @@
     height: 50px;
     line-height: 50px;
     color: #fff;
-    font-size: 18px;
+    font-size: 24px;
+    font-weight: bold;
 }
 
 .tabs-nav{
@@ -72,13 +51,14 @@
     border-bottom: 1px solid #cccccc;
     box-sizing: border-box;
     font-size: 16px;
+    background: #999;
 }
 .tabs-left{
     border-right: 1px solid #cccccc;
 }
 
-@media only screen and (min-width:1000px){
-    .publish .left-btn, .publish .right-btn {
-        display: none;
-    }
-}
+/*@media only screen and (min-width:1000px){*/
+    /*.publish .left-btn, .publish .right-btn {*/
+        /*display: none;*/
+    /*}*/
+/*}*/

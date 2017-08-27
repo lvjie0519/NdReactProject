@@ -24,8 +24,7 @@ export default class OrderMain extends Component {
     // this.getSelectPage()
     return (
       <div>
-        <Header
-          centerText='首页' />
+        <Header centerText='首页' />
         <OrderMainTop
           leftText='单据申请'
           rightText='我的单据'
