@@ -22,7 +22,8 @@ export default class OrderEdit extends Component {
     this.state = {
       title: '',
       userNameTip: '',
-      userIdTip: ''
+      userIdTip: '',
+      userDesTip: ''
     }
 
     this.orderInfo = props.location.state.orderInfo
@@ -81,7 +82,8 @@ export default class OrderEdit extends Component {
           </div>
           <div style={{marginTop: 20}}>
             <span>单据说明：</span>
-            <textarea ref='orderDes' rows='30' />
+            <textarea ref='orderDes' rows='30' placeholder='请输入单据说明' />
+            <span style={{color: 'red'}}>{this.state.userDesTip}</span>
           </div>
           <div styleName='btn-box'>
             <span styleName='btn smart-btn-submit' onClick={this.submitOnClick}>提交</span>
@@ -100,6 +102,7 @@ export default class OrderEdit extends Component {
   checkInput() {
     let resultName = false
     let resultId = false
+    let resultDes = false
     const lengthName = this.refs.userName.value.length
     if (lengthName === 0) {
       this.setState({
@@ -115,12 +118,12 @@ export default class OrderEdit extends Component {
       })
       resultName = true
     }
-    const length = this.refs.userId.value.length
-    if (length === 0) {
+    const lengthId = this.refs.userId.value.length
+    if (lengthId === 0) {
       this.setState({
         userIdTip: '请输入工号'
       })
-    } else if (!/^[-+]?\d*$/.test(this.refs.userId.value) || length < 6 || length > 10) {
+    } else if (!/^[-+]?\d*$/.test(this.refs.userId.value) || lengthId < 6 || lengthId > 10) {
       this.setState({
         userIdTip: '请输入正确的工号，位数为6到10位'
       })
@@ -130,7 +133,18 @@ export default class OrderEdit extends Component {
       })
       resultId = true
     }
-    return resultName && resultId
+    const lengthDes = this.refs.orderDes.value.length
+    if (lengthDes === 0) {
+      this.setState({
+        userDesTip: '请输入单据说明'
+      })
+    } else {
+      this.setState({
+        userIdTip: ''
+      })
+      resultDes = true
+    }
+    return resultName && resultId && resultDes
   }
 
   submitOnClick() {
@@ -139,10 +153,11 @@ export default class OrderEdit extends Component {
     if (result) {
       console.log('提交', this.orderInfo)
       const that = this
-      Dialog.show(3, '', '是否确认提交单据？', 2000, function () {
+      Dialog.show(3, '', '是否确认提交单据？', 100000, function () {
         that.handleSubmit()
+        return true
       }, function () {
-        Dialog.hide()
+        return true
       })
     }
   }

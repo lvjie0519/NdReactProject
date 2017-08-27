@@ -41,6 +41,38 @@ export default class ApplyOrderList extends Component {
       {
         'orderId': '1007',
         'orderName': '会议室申请表'
+      },
+      {
+        'orderId': '1008',
+        'orderName': '电话会议申请表'
+      },
+      {
+        'orderId': '1009',
+        'orderName': '软件安装申请表'
+      },
+      {
+        'orderId': '1010',
+        'orderName': '资产入库单'
+      },
+      {
+        'orderId': '1011',
+        'orderName': '资产转移申请表'
+      },
+      {
+        'orderId': '1012',
+        'orderName': '资产出库单'
+      },
+      {
+        'orderId': '1013',
+        'orderName': '外来人员住宿申请表'
+      },
+      {
+        'orderId': '1012',
+        'orderName': '资产转移申请表'
+      },
+      {
+        'orderId': '1013',
+        'orderName': '补贴申请表'
       }
     ]
   }
