@@ -41,7 +41,7 @@ export default class OrderEdit extends Component {
           </div>
           <div style={{marginTop: 20}}>
             <span>单据说明：</span>
-            <textarea id='description' ref='orderDes' name='description' rows='30' />
+            <textarea id='description' ref='orderDes' rows='30' />
           </div>
           <div >
             <button onClick={this.submitOnClick} >提交</button>
@@ -53,7 +53,10 @@ export default class OrderEdit extends Component {
 
   headerLeftOnClick() {
     console.log('点击返回')
-    this.context.router.goBack()
+    // this.context.router.goBack()
+    this.context.router.push({
+      pathname: '/'
+    })
   }
 
   submitOnClick() {
@@ -63,7 +66,6 @@ export default class OrderEdit extends Component {
     let orderStatus = '未审批'
     let orderName = this.orderInfo.orderName
     let orderDes = this.refs.orderDes.value.trim()
-    let orderApplyTime = this.getCurrentDateTime()
     let userName = this.refs.userName.value.trim()
     let userId = this.refs.userId.value.trim()
 
@@ -73,47 +75,11 @@ export default class OrderEdit extends Component {
       'orderStatus': orderStatus,
       'orderName': orderName,
       'orderDes': orderDes,
-      'orderApplyTime': orderApplyTime,
       'orderApplyer': userName,
       'orderApplyerId': userId
     }
     console.log('orderInfo', orderInfo)
     this.postOrderInfoToServer(orderInfo)
-  }
-
-  getCurrentDateTime() {
-    let now = new Date()
-
-    let year = now.getFullYear()       // 年
-    let month = now.getMonth() + 1    // 月
-    let day = now.getDate()            // 日
-    let hh = now.getHours()          // 时
-    let mm = now.getMinutes()          // 分
-
-    let dateTime = year + '-'
-
-    if (month < 10) {
-      dateTime += '0'
-    }
-
-    dateTime += month + '-'
-
-    if (day < 10) {
-      dateTime += '0'
-    }
-
-    dateTime += day + ' '
-
-    if (hh < 10) {
-      dateTime += '0'
-    }
-
-    dateTime += hh + ':'
-    if (mm < 10) {
-      dateTime += '0'
-    }
-    dateTime += mm
-    return dateTime
   }
 
   // 上传数据 成功
