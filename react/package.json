@@ -14,7 +14,8 @@
     "dist": "npm run copy & npm run copy:polyfill & webpack --env=dist",
     "mock":"json-server ./mock/db.json ----port 3003",
     "test": "karma start",
-    "test:watch": "karma start --autoWatch=true --singleRun=false"
+    "test:watch": "karma start --autoWatch=true --singleRun=false",
+    "lint": "eslint ./src"
   },
   "author": "xudaosong <xudaosong@163.com>",
   "license": "MIT",
