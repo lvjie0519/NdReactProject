@@ -18,6 +18,18 @@ export default class OrderPayPage extends Component {
     super(props)
 
     this.merchantInfo = props.location.state.merchantInfo
+    if (this.merchantInfo == null) {
+      this.merchantInfo = {
+        id: 0,
+        merchantId: 0,
+        merchantLogo: '',
+        merchantName: '',
+        merchantDes: '',
+        merchantPrice: '',
+        merchantCount: 0,
+        merchantHot: 0
+      }
+    }
     console.log('OrderPayPage...merchantInfo=', this.merchantInfo)
     this.orderPayInfo = {
       merchantName: this.merchantInfo.merchantName,
@@ -87,6 +99,7 @@ export default class OrderPayPage extends Component {
 
   headerLeftClick() {
     console.log('headerLeftClick')
+    this.context.router.goBack()
   }
 
   headerRightClick() {

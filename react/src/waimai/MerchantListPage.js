@@ -19,6 +19,8 @@ export default class MerchantListPage extends Component {
 
     this.headerLeftClick = this.headerLeftClick.bind(this)
     this.headerRightClick = this.headerRightClick.bind(this)
+    this.onMyOrderClick = this.onMyOrderClick.bind(this)
+    this.onRefresh = this.onRefresh.bind(this)
     this.onBuyClick = this.onBuyClick.bind(this)
   }
 
@@ -51,6 +53,8 @@ export default class MerchantListPage extends Component {
             centerText='外卖商品列表'
             leftClick={this.headerLeftClick}
             rightClick={this.headerRightClick}
+            onMyOrderClick={this.onMyOrderClick}
+            onRefresh={this.onRefresh}
           />
           <div styleName='content-wrapper'>
             {items}
@@ -66,6 +70,41 @@ export default class MerchantListPage extends Component {
 
   headerRightClick() {
     console.log('headerRightClick')
+  }
+
+  // 进入我的订单列表页面
+  onMyOrderClick() {
+    console.log('onMyOrderClick')
+    console.log(this.context.router)
+    this.context.router.push({
+      pathname: '/order-list'
+    })
+  }
+
+  // 刷新商家列表
+  onRefresh() {
+    console.log('onRefresh')
+    let len = this.state.merchantInfos.length
+    // 利用随机数重新设置商家热度
+    for (let i = 0; i < len; i++) {
+      let hot = Math.round(Math.random() * 40)
+      this.state.merchantInfos[i].merchantHot = hot
+    }
+
+    // 根据热度进行重新排序
+    for (let i = 0; i < len - 1; i++) {
+      for (let j = i + 1; j < len; j++) {
+        let merchantInfo = this.state.merchantInfos[i]
+        if (merchantInfo.merchantHot < this.state.merchantInfos[j].merchantHot) {
+          merchantInfo = this.state.merchantInfos[j]
+          this.state.merchantInfos[j] = this.state.merchantInfos[i]
+          this.state.merchantInfos[i] = merchantInfo
+        }
+      }
+    }
+
+    console.log('onRefresh...', this.state.merchantInfos)
+    this.setState({onRefresh: new Date().getTime(), isLoading: false})
   }
 
   onBuyClick(merchantInfo) {

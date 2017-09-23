@@ -10,7 +10,9 @@ export default class Header extends Component {
   static propTypes = {
     centerText: React.PropTypes.string,
     leftClick: React.PropTypes.func,
-    rightClick: React.PropTypes.func
+    rightClick: React.PropTypes.func,
+    onMyOrderClick: React.PropTypes.func,
+    onRefresh: React.PropTypes.func
   }
 
   static getDefaultProps = {
@@ -39,6 +41,26 @@ export default class Header extends Component {
     })
   }
 
+  onMyOrderClick() {
+    if (this.props.onMyOrderClick) {
+      this.props.onMyOrderClick()
+    }
+
+    this.setState({
+      show: !this.state.show
+    })
+  }
+
+  onRefresh() {
+    if (this.props.onRefresh) {
+      this.props.onRefresh()
+    }
+
+    this.setState({
+      show: !this.state.show
+    })
+  }
+
   render() {
     return (
       <div style={{height: 'auto'}}>
@@ -52,8 +74,8 @@ export default class Header extends Component {
             <div styleName='mask' />
             <div styleName='right-list'>
               <ul>
-                <li>我的订单</li>
-                <li>刷新</li>
+                <li onClick={(e) => { this.onMyOrderClick() }} >我的订单</li>
+                <li onClick={(e) => { this.onRefresh() }} >刷新</li>
               </ul>
             </div>
           </div>
