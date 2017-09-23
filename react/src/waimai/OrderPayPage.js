@@ -86,6 +86,7 @@ export default class OrderPayPage extends Component {
 
   headerLeftClick() {
     console.log('headerLeftClick')
+    this.context.router.goBack()
   }
 
   headerRightClick() {
