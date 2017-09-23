@@ -17,6 +17,13 @@ export default class Header extends Component {
     centerText: ''
   }
 
+  constructor(props) {
+    super(props)
+    this.state = {
+      show: false
+    }
+  }
+
   leftClick(e) {
     if (this.props.leftClick !== null) {
       this.props.leftClick()
@@ -27,18 +34,30 @@ export default class Header extends Component {
     if (this.props.rightClick != null) {
       this.props.rightClick()
     }
+    this.setState({
+      show: !this.state.show
+    })
   }
 
   render() {
     return (
-      <div styleName='header-container'>
-        <button styleName='left-text' onClick={(e) => {
-          this.leftClick(e)
-        }}>箭头</button>
-        <h2>{this.props.centerText}</h2>
-        <button styleName='right-btn' onClick={(e) => {
-          this.rightClick(e)
-        }}>图片</button>
+      <div>
+        <div styleName='header-container'>
+          <a styleName='left-btn' onClick={(e) => { this.leftClick(e) }} />
+          <span styleName='center-text'>{this.props.centerText}</span>
+          <a styleName='right-btn' onClick={(e) => { this.rightClick(e) }} />
+        </div>
+        {this.state.show ? (
+          <div>
+            <div styleName='mask' />
+            <div styleName='right-list'>
+              <ul>
+                <li>我的订单</li>
+                <li>刷新</li>
+              </ul>
+            </div>
+          </div>
+        ) : ''}
       </div>
     )
   }

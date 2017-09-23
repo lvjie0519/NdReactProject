@@ -3,10 +3,13 @@
  */
 import React, { Component } from 'react'
 import $ from 'jquery'
+import CSSModules from 'react-css-modules'
 import Header from './component/header'
 import MerchantListItem from './component/MerchantListItem'
+import styles from '../theme/styles/index.css'
 
 // 商家列表页面
+@CSSModules(styles, {allowMultiple: true})
 export default class MerchantListPage extends Component {
   constructor(props) {
     super(props)
@@ -49,7 +52,7 @@ export default class MerchantListPage extends Component {
             leftClick={this.headerLeftClick}
             rightClick={this.headerRightClick}
           />
-          <div style={{ padding: '10px 30px' }}>
+          <div styleName='content-wrapper'>
             {items}
           </div>
         </div>

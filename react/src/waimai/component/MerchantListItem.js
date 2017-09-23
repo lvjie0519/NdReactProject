@@ -3,7 +3,7 @@
  */
 import React, {Component} from 'react'
 import CSSModules from 'react-css-modules'
-import styles from '../../theme/styles/questionItem.css'
+import styles from '../../theme/styles/merchantListItem.css'
 
 // 商家列表 item
 @CSSModules(styles, {allowMultiple: true})
@@ -28,12 +28,12 @@ export default class MerchantListItem extends Component {
 
   render() {
     return (
-      <div>
+      <div styleName='merchant-item-box' >
         <img src={require('../../static/images/a.jpg')} />
         <h2>{this.props.merchantInfo.merchantName}</h2>
-        <h2>{this.props.merchantInfo.merchantDes}</h2>
-        <h2>{this.props.merchantInfo.merchantPrice}</h2>
-        <h2>{this.props.merchantInfo.merchantCount}</h2>
+        <span>{this.props.merchantInfo.merchantCount}</span>
+        <span>{this.props.merchantInfo.merchantDes}</span>
+        <span>{this.props.merchantInfo.merchantPrice}</span>
         {this.props.isShowBuyBtn ? <button onClick={(e) => {
           this.onBuyClick(e)
         }}>图片</button> : <div>''</div>}
