@@ -45,7 +45,7 @@ export default class OrderListPage extends Component {
             leftClick={this.headerLeftClick}
             rightClick={this.headerRightClick}
           />
-          <div styleName='content-wrapper'>
+          <div styleName='content-wrapper order-box'>
             {items}
           </div>
         </div>

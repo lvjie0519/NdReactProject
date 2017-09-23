@@ -29,8 +29,10 @@ export default class MerchantListItem extends Component {
   render() {
     return (
       <div styleName='merchant-item-box' >
-        <img styleName='merchant-img' src={require('../../static/images/a.jpg')} />
-        <div styleName='merchant-content' >
+        <div styleName='merchant-img-box'>
+          <img styleName='merchant-img' src={require('../../static/images/a.jpg')} />
+        </div>
+        <div styleName={this.props.isShowBuyBtn ? 'merchant-content' : 'merchant-content merchant-disabled'} >
           <p styleName='merchant-title' >
             <span styleName='merchant-name'>{this.props.merchantInfo.merchantName}</span>
             <span styleName='merchant-count'>{this.props.merchantInfo.merchantCount}</span>
