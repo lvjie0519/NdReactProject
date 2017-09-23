@@ -53,7 +53,7 @@
     {
       "id": 5,
       "merchantId": 5,
-      "merchantLogo": "../src/static/images/a.jpg",
+      "merchantLogo": "../src/static/images/c.jpg",
       "merchantName": "小龙虾",
       "merchantDes": "新鲜出炉的小龙虾",
       "merchantPrice": "24",
