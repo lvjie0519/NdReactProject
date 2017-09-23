@@ -43,7 +43,10 @@ export default class OrderPayPage extends Component {
       extra: ''
     }
 
-    this.state = {num: ''}
+    this.state = {
+      num: '',
+      totalMoney: 0
+    }
 
     this.headerLeftClick = this.headerLeftClick.bind(this)
     this.headerRightClick = this.headerRightClick.bind(this)
@@ -51,8 +54,10 @@ export default class OrderPayPage extends Component {
 
   inputNum() {
     const value = this.refs.userBuycount.value
+    console.log('onchange..', value)
     this.setState({
-      num: value
+      num: value,
+      totalMoney: value * this.orderPayInfo.merchantPrice
     })
   }
 
@@ -112,7 +117,32 @@ export default class OrderPayPage extends Component {
     this.orderPayInfo.userPhone = this.refs.userPhone.value.trim()
     this.orderPayInfo.userAddress = this.refs.userAddress.value.trim()
     this.orderPayInfo.extra = this.refs.extra.value.trim()
-    this.orderPayInfo.totalMoney = this.state.num * this.orderPayInfo.merchantPrice
+    this.orderPayInfo.totalMoney = this.state.totalMoney
+
+    if (isNaN(this.state.totalMoney) || isNaN(this.orderPayInfo.userBuycount)) {
+      alert('数量必须为整数')
+      return
+    }
+
+    if (this.orderPayInfo.userBuycount === '') {
+      alert('请填写数量')
+      return
+    }
+
+    if (this.orderPayInfo.userName === '') {
+      alert('请填写姓名')
+      return
+    }
+
+    if (this.orderPayInfo.userPhone === '') {
+      alert('请填写电话')
+      return
+    }
+
+    if (this.orderPayInfo.userAddress === '') {
+      alert('请填写地址')
+      return
+    }
 
     let orderId = new Date().getTime()
     this.orderPayInfo.id = orderId
