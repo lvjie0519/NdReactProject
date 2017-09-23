@@ -3,13 +3,13 @@
  */
 import React, { Component } from 'react'
 
-import QuestionMain from './question/QuestionMain'
+import FoodTakeOutMain from './waimai/FoodTakeOutMain'
 
 export default class AppMain extends Component {
   render() {
     return (
       <div>
-        <QuestionMain />
+        <FoodTakeOutMain />
       </div>
     )
   }
