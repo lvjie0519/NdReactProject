@@ -1,7 +1,32 @@
 @import 'reset.css';
 /*全局样式*/
 
-
 html {
   font-size: 14px;
+  background: #fff;
+  height: 100%
+}
+
+body {
+  height: 100%;
+}
+
+body div {
+  height: 100%
+}
+
+input::-webkit-input-placeholder {
+  color: #ddd;
+}
+
+input:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+  color: #ddd;
+}
+
+input::-moz-placeholder { /* Mozilla Firefox 19+ */
+  color: #ddd;
+}
+
+input:-ms-input-placeholder { /* Internet Explorer 10+ */
+  color: #ddd;
 }

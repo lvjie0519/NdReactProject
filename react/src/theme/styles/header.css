@@ -1,3 +1,12 @@
+.header-wrapper {
+  height: auto;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+}
+
 .header-container {
   height: 50px;
   width: 100%;
@@ -68,6 +77,7 @@
   background: #fff;
   z-index: 999;
   border-radius: 4px;
+  height: auto;
 }
 
 .right-list:before {
