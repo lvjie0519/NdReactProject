@@ -50,6 +50,7 @@ export default class OrderPayPage extends Component {
   }
 
   inputNum() {
+    this.refs.userBuycount.value = this.refs.userBuycount.value.replace(/[^0-9]+/, '')
     const value = this.refs.userBuycount.value
     this.setState({
       num: value
