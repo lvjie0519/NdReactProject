@@ -139,6 +139,13 @@ export default class OrderPayPage extends Component {
       return
     }
 
+    // 验证电话号码
+    let regex = /^((\+)?86|((\+)?86)?)0?1[3458]\d{9}$/
+    if (!regex.test(this.orderPayInfo.userPhone)) {
+      alert('请填写正确的手机号码')
+      return
+    }
+
     if (this.orderPayInfo.userAddress === '') {
       alert('请填写地址')
       return
