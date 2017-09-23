@@ -91,7 +91,7 @@ export default class OrderPayPage extends Component {
     let orderId = new Date().getTime()
     this.orderPayInfo.id = orderId
     this.orderPayInfo.orderId = orderId
-    this.orderPayInfo.createTime = (new Date()).format('yyyy-MM-dd HH:mm')
+    this.orderPayInfo.createTime = this.getCurrentDateTime()
 
     console.log('onBuyClick...', this.orderPayInfo)
 
@@ -106,10 +106,52 @@ export default class OrderPayPage extends Component {
       data: orderPayInfo,
       success: infos => {
         console.log('上传成功', infos)
+        this.context.router.push({
+          pathname: '/order-list'
+        })
       },
       error: (xhr, status, err) => {
         console.log('上传失败', err.toString())
       }
     })
   }
+
+  getCurrentDateTime() {
+    let now = new Date()
+
+    let year = now.getFullYear()       // 年
+    let month = now.getMonth() + 1    // 月
+    let day = now.getDate()            // 日
+    let hh = now.getHours()          // 时
+    let mm = now.getMinutes()          // 分
+
+    let dateTime = year + '-'
+
+    if (month < 10) {
+      dateTime += '0'
+    }
+
+    dateTime += month + '-'
+
+    if (day < 10) {
+      dateTime += '0'
+    }
+
+    dateTime += day + ' '
+
+    if (hh < 10) {
+      dateTime += '0'
+    }
+
+    dateTime += hh + ':'
+    if (mm < 10) {
+      dateTime += '0'
+    }
+    dateTime += mm
+    return dateTime
+  }
+}
+
+OrderPayPage.contextTypes = {
+  router: React.PropTypes.object
 }
