@@ -4,8 +4,11 @@
 import React, { Component } from 'react'
 import $ from 'jquery'
 import Header from './component/header'
+import CSSModules from 'react-css-modules'
+import styles from '../theme/styles/index.css'
 
 // 配送表单页面
+@CSSModules(styles, {allowMultiple: true})
 export default class OrderPayPage extends Component {
   static propTypes = {
     location: React.PropTypes.object
@@ -49,24 +52,34 @@ export default class OrderPayPage extends Component {
           leftClick={this.headerLeftClick}
           rightClick={this.headerRightClick}
         />
-        <div>
-          <h3>商品名称</h3> <h3>{this.orderPayInfo.merchantName}</h3>
-          <h3>商品描述</h3> <h3>{this.orderPayInfo.merchantDes}</h3>
-          <h3>价格</h3> <h3>￥{this.orderPayInfo.merchantPrice}</h3>
+        <div styleName='content-wrapper send-wrapper'>
+          <ul styleName='merchant-info' >
+            <li>商品名称 <span styleName='merchant-text'>{this.orderPayInfo.merchantName}</span></li>
+            <li>商品描述
+              <span styleName='merchant-text'>
+                { this.orderPayInfo.merchantDes.length > 8 ? `${this.orderPayInfo.merchantDes.slice(0, 8)}...` : this.orderPayInfo.merchantDes }
+              </span>
+            </li>
+            <li>价格 <span styleName='merchant-text'>{this.orderPayInfo.merchantPrice}</span></li>
+          </ul>
           <form>
-            <h3>数量</h3> <input id='userBuycount' ref='userBuycount' type='text' placeholder='请填写数量' onChange={() => {
-              this.inputNum()
-            }} />
-            <h3>姓名</h3> <input id='userName' ref='userName' type='text' placeholder='请填写姓名' />
-            <h3>电话</h3> <input id='userPhone' ref='userPhone' type='text' placeholder='请填写电话' />
-            <h3>地址</h3> <input id='userAddress' ref='userAddress' type='text' placeholder='请填写地址' />
-            <h3>特殊要求</h3> <input id='extra' ref='extra' type='text' placeholder='请填写特殊要求' />
-            <span ref='totalMoney'>{this.state.num * this.orderPayInfo.merchantPrice}</span>
-            <button onClick={(e) => {
+            <ul styleName='merchant-info' >
+              <li>数量 <input id='userBuycount' ref='userBuycount' type='text' placeholder='请填写数量' onChange={() => {
+                this.inputNum()
+              }} /></li>
+              <li>姓名 <input id='userName' ref='userName' type='text' placeholder='请填写姓名' /></li>
+              <li>电话 <input id='userPhone' ref='userPhone' type='text' placeholder='请填写电话' /></li>
+              <li>地址 <input id='userAddress' ref='userAddress' type='text' placeholder='请填写地址' /></li>
+              <li>特殊要求 <input id='extra' ref='extra' type='text' placeholder='请填写特殊要求' /></li>
+            </ul>
+          </form>
+          <div styleName='merchant-buy' >
+            <span ref='totalMoney' styleName='merchant-totalmoney' >￥{this.state.totalMoney}</span>
+            <a styleName='merchant-buy-btn' onClick={(e) => {
               this.onBuyClick(e)
             }}>确认购买
-            </button>
-          </form>
+            </a>
+          </div>
         </div>
       </div>
     )

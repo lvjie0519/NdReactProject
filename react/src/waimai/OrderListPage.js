@@ -5,8 +5,11 @@ import React, { Component } from 'react'
 import $ from 'jquery'
 import Header from './component/header'
 import OrderListItem from './component/OrderListItem'
+import CSSModules from 'react-css-modules'
+import styles from '../theme/styles/index.css'
 
 // 订单列表页面
+@CSSModules(styles, {allowMultiple: true})
 export default class OrderListPage extends Component {
   constructor(props) {
     super(props)
@@ -42,7 +45,7 @@ export default class OrderListPage extends Component {
             leftClick={this.headerLeftClick}
             rightClick={this.headerRightClick}
           />
-          <div style={{ padding: '10px 30px' }}>
+          <div styleName='content-wrapper'>
             {items}
           </div>
         </div>
