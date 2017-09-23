@@ -3,7 +3,7 @@
  */
 import React, {Component} from 'react'
 import CSSModules from 'react-css-modules'
-import styles from '../../theme/styles/questionItem.css'
+import styles from '../../theme/styles/merchantListItem.css'
 
 // 商家列表 item
 @CSSModules(styles, {allowMultiple: true})

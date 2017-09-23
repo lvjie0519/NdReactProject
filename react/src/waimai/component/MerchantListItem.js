@@ -29,14 +29,20 @@ export default class MerchantListItem extends Component {
   render() {
     return (
       <div styleName='merchant-item-box' >
-        <img src={require('../../static/images/a.jpg')} />
-        <h2>{this.props.merchantInfo.merchantName}</h2>
-        <span>{this.props.merchantInfo.merchantCount}</span>
-        <span>{this.props.merchantInfo.merchantDes}</span>
-        <span>{this.props.merchantInfo.merchantPrice}</span>
-        {this.props.isShowBuyBtn ? <button onClick={(e) => {
-          this.onBuyClick(e)
-        }}>图片</button> : <div>''</div>}
+        <img styleName='merchant-img' src={require('../../static/images/a.jpg')} />
+        <div styleName='merchant-content' >
+          <p styleName='merchant-title' >
+            <span styleName='merchant-name'>{this.props.merchantInfo.merchantName}</span>
+            <span styleName='merchant-count'>{this.props.merchantInfo.merchantCount}</span>
+          </p>
+          <p styleName='merchant-des' >{this.props.merchantInfo.merchantDes}</p>
+          <p styleName='merchant-bottom' >
+            <span styleName='merchant-price' >{this.props.merchantInfo.merchantPrice}</span>
+            {this.props.isShowBuyBtn ? <a styleName='merchant-buy-btn' onClick={(e) => {
+              this.onBuyClick(e)
+            }}>购买</a> : ''}
+          </p>
+        </div>
       </div>
     )
   }
