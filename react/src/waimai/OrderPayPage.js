@@ -53,6 +53,7 @@ export default class OrderPayPage extends Component {
   }
 
   inputNum() {
+    this.refs.userBuycount.value = this.refs.userBuycount.value.replace(/[^0-9]+/, '')
     const value = this.refs.userBuycount.value
     console.log('onchange..', value)
     this.setState({
@@ -81,9 +82,8 @@ export default class OrderPayPage extends Component {
           </ul>
           <form>
             <ul styleName='merchant-info' >
-              <li>数量 <input id='userBuycount' ref='userBuycount' type='text' placeholder='请填写数量' onChange={() => {
-                this.inputNum()
-              }} /></li>
+              <li>数量 <input id='userBuycount' ref='userBuycount' type='text' placeholder='请填写数量'
+                onChange={() => { this.inputNum() }} /></li>
               <li>姓名 <input id='userName' ref='userName' type='text' placeholder='请填写姓名' /></li>
               <li>电话 <input id='userPhone' ref='userPhone' type='text' placeholder='请填写电话' /></li>
               <li>地址 <input id='userAddress' ref='userAddress' type='text' placeholder='请填写地址' /></li>

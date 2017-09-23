@@ -5,8 +5,17 @@
   height: auto;
 }
 
-.merchant-img {
+.merchant-img-box {
   width: 30%;
+  min-height: 90px;
+}
+
+.merchant-img {
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+  background-size: auto 100%;
+  border: 0
 }
 
 .merchant-content {
@@ -59,3 +68,20 @@
   float: right;
   margin-bottom: 10px;
 }
+
+.merchant-disabled .merchant-name{
+   color: #d1d1d1;
+ }
+
+.merchant-disabled .merchant-count{
+  color: #d1d1d1;
+}
+
+.merchant-disabled .merchant-des{
+  color: #d1d1d1;
+}
+
+.merchant-disabled .merchant-price{
+  color: #d1d1d1;
+}
+
