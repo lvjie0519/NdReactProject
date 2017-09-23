@@ -3,3 +3,57 @@
   border-bottom: 1px solid #f0f0f0;
   position: relative;
 }
+
+.merchant-img {
+  width: 30%;
+}
+
+.merchant-content {
+  position: absolute;
+  left: 35%;
+  top: 10px;
+  right: 10px;
+  bottom: 10px;
+}
+
+.merchant-title {
+
+}
+
+.merchant-name {
+  color: #545454;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.merchant-count {
+  float: right;
+  font-size: 14px;
+  color: #b4b4b4;
+}
+
+.merchant-des {
+  font-size: 14px;
+  color: #9d9d9d;
+}
+
+.merchant-bottom {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
+.merchant-price {
+  font-size: 18px;
+  color: #19a4bf;
+}
+
+.merchant-buy-btn {
+  padding: 5px 20px;
+  background: #fff;
+  font-size: 14px;
+  color: #505050;
+  border-radius: 5px;
+  border: 1px solid #e7e7e7;
+  float: right;
+}
