@@ -39,7 +39,7 @@ export default class MerchantListItem extends Component {
           </p>
           <p styleName='merchant-des' >{this.props.merchantInfo.merchantDes}</p>
           <p styleName='merchant-bottom' >
-            <span styleName='merchant-price' >{this.props.merchantInfo.merchantPrice}</span>
+            <span styleName='merchant-price' >￥{this.props.merchantInfo.merchantPrice}</span>
             {this.props.isShowBuyBtn ? <a styleName='merchant-buy-btn' onClick={(e) => {
               this.onBuyClick(e)
             }}>购买</a> : ''}

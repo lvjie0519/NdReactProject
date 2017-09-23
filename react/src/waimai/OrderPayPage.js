@@ -78,7 +78,7 @@ export default class OrderPayPage extends Component {
                 { this.orderPayInfo.merchantDes.length > 8 ? `${this.orderPayInfo.merchantDes.slice(0, 8)}...` : this.orderPayInfo.merchantDes }
               </span>
             </li>
-            <li>价格 <span styleName='merchant-text'>{this.orderPayInfo.merchantPrice}</span></li>
+            <li>价格 <span styleName='merchant-text'>￥{this.orderPayInfo.merchantPrice}</span></li>
           </ul>
           <form>
             <ul styleName='merchant-info' >
