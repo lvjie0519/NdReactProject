@@ -70,6 +70,13 @@ export default class MerchantListPage extends Component {
 
   onBuyClick(merchantInfo) {
     console.log('onBuyClick', merchantInfo)
+
+    this.context.router.push({
+      pathname: '/order-pay',
+      state: {
+        merchantInfo: merchantInfo
+      }
+    })
   }
 
   loadDataFromMock() {
@@ -86,4 +93,8 @@ export default class MerchantListPage extends Component {
       }
     })
   }
+}
+
+MerchantListPage.contextTypes = {
+  router: React.PropTypes.object
 }

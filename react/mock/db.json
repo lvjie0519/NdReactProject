@@ -6,7 +6,7 @@
       "merchantLogo": "../src/static/images/a.jpg",
       "merchantName": "奥尔良烤翅",
       "merchantDes": "新鲜出炉的奥尔良烤翅",
-      "merchantPrice": "￥6",
+      "merchantPrice": "6",
       "merchantCount": 10,
       "merchantHot": 30
     },
@@ -16,7 +16,7 @@
       "merchantLogo": "../src/static/images/b.jpg",
       "merchantName": "西点面包",
       "merchantDes": "新鲜出炉的西点面包",
-      "merchantPrice": "￥8",
+      "merchantPrice": "8",
       "merchantCount": 0,
       "merchantHot": 23
     },
@@ -26,7 +26,7 @@
       "merchantLogo": "../src/static/images/c.jpg",
       "merchantName": "西式套餐",
       "merchantDes": "新鲜出炉的西式套餐",
-      "merchantPrice": "￥18",
+      "merchantPrice": "18",
       "merchantCount": 20,
       "merchantHot": 22
     },
@@ -36,7 +36,7 @@
       "merchantLogo": "../src/static/images/d.jpg",
       "merchantName": "高八斗",
       "merchantDes": "新鲜出炉的高八斗",
-      "merchantPrice": "￥24",
+      "merchantPrice": "24",
       "merchantCount": 20,
       "merchantHot": 21
     },
@@ -46,7 +46,7 @@
       "merchantLogo": "../src/static/images/a.jpg",
       "merchantName": "华莱士",
       "merchantDes": "新鲜出炉的华莱士",
-      "merchantPrice": "￥24",
+      "merchantPrice": "24",
       "merchantCount": 30,
       "merchantHot": 18
     },
@@ -56,9 +56,39 @@
       "merchantLogo": "../src/static/images/a.jpg",
       "merchantName": "小龙虾",
       "merchantDes": "新鲜出炉的小龙虾",
-      "merchantPrice": "￥24",
+      "merchantPrice": "24",
       "merchantCount": 30,
       "merchantHot": 40
+    }
+  ],
+  "orders": [
+    {
+      "merchantName": "小龙虾",
+      "merchantDes": "新鲜出炉的小龙虾",
+      "merchantPrice": "24",
+      "userBuycount": "2",
+      "userName": "asdf",
+      "userPhone": "1343254324",
+      "userAddress": "adsfasdf",
+      "totalMoney": "48",
+      "extra": "asdfffffffffasdaf",
+      "id": "1506147916512",
+      "orderId": "1506147916512",
+      "createTime": "2017-09-23 14:25"
+    },
+    {
+      "merchantName": "小龙虾",
+      "merchantDes": "新鲜出炉的小龙虾",
+      "merchantPrice": "24",
+      "userBuycount": "3",
+      "userName": "爱的色放",
+      "userPhone": "124352345",
+      "userAddress": "啊大神发达第三方",
+      "totalMoney": "72",
+      "extra": "阿斯顿发生的",
+      "id": "1506149087297",
+      "orderId": "1506149087297",
+      "createTime": "2017-09-23 14:44"
     }
   ]
 }
